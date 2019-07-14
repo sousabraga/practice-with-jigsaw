@@ -5,9 +5,9 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-import br.com.casadocodigo.data.Books;
-import br.com.casadocodigo.model.Book;
-import br.com.casadocodigo.service.NFEmissor;
+import br.com.casadocodigo.http.data.Books;
+import br.com.casadocodigo.domain.model.Book;
+import br.com.casadocodigo.nf.service.NFEmissor;
 
 public class Main {
 	

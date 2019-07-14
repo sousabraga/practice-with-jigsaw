@@ -1,3 +1,5 @@
 module br.com.casadocodigo {
-    requires java.net.http;
+    requires br.com.casadocodigo.nf;
+    requires br.com.casadocodigo.domain;
+    requires br.com.casadocodigo.http;
 }
