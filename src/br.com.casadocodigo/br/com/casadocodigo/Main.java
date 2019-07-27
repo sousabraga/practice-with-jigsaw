@@ -1,5 +1,7 @@
 package br.com.casadocodigo;
 
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
@@ -12,6 +14,9 @@ import br.com.casadocodigo.nf.service.NFEmissor;
 public class Main {
 	
 	public static void main(String[] args) {
+		Logger logger = System.getLogger("CustomLogger");
+		logger.log(Level.TRACE, "Iniciando a execução da Bookstore");
+
 		System.out.println("Lista de livros disponiveis");
 
 		List<Book> books = Books.all();
@@ -30,7 +35,7 @@ public class Main {
 			
 			Book book = books.get(number);
 
-			System.out.println("O livro	escolhido foi: " + book.getName());
+			logger.log(Level.INFO, "O livro escolhido foi: " + book.getName());
 			System.out.println("Informe	seu	nome, para que possamos	emitir a nota fiscal");
 
 			scanner	= new Scanner(System.in);
@@ -50,8 +55,10 @@ public class Main {
 						
 			emissor.close();
 		} catch (Exception e) {
-			System.err.println("Ops, aconteceu	um	erro: " + e);
+			logger.log(Level.ERROR, "Ops, aconteceu	um	erro: " + e);
 		} 
+
+		logger.log(Level.TRACE, "Finalizando a execução da Bookstore");
 	}
 
 	private static Consumer<Book> showSimilar = similar -> {

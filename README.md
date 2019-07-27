@@ -4,6 +4,8 @@ Practice with new Java modular architecture (Jigsaw) and some new APIs (based on
 ### Commands to compile modules
 
 ```shell
+javac -d mods/br.com.casadocodigo.logging --module-path mods src/br.com.casadocodigo.logging/module-info.java $(find src/br.com.casadocodigo.logging -name "*.java")
+
 javac -d mods/br.com.casadocodigo.domain --module-path mods src/br.com.casadocodigo.domain/module-info.java $(find src/br.com.casadocodigo.domain -name "*.java")
 
 javac -d mods/br.com.casadocodigo.http --module-path mods src/br.com.casadocodigo.http/module-info.java	$(find src/br.com.casadocodigo.http -name "*.java")
