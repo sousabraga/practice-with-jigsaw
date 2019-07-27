@@ -44,3 +44,22 @@ or (**without module path information**)
 JRE-bookstore/bin/java -m br.com.casadocodigo/br.com.casadocodigo.Main
 ```
 
+### Creating application JARs
+```shell
+mkdir mlib
+
+jar --create --file=mlib/br.com.casadocodigo.domain-1.0.jar --module-version 1.0 -C mods/br.com.casadocodigo.domain .
+
+jar --create --file=mlib/br.com.casadocodigo.nf-1.0.jar --module-version 1.0 -C mods/br.com.casadocodigo.nf .
+
+jar --create --file=mlib/br.com.casadocodigo.http-1.0.jar --module-version 1.0 -C mods/br.com.casadocodigo.http .
+
+jar --create --file=mlib/br.com.casadocodigo-1.0.jar --module-version 1.0 --main-class=br.com.casadocodigo.Main -C mods/br.com.casadocodigo .
+```
+
+**To execute**
+
+```shell
+java -p mlib -m br.com.casadocodigo
+```
+
